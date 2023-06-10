@@ -8,6 +8,7 @@
 #import "FluentWallaperProvider.h"
 #import "FluentWallpaper+Private.h"
 #import "FluentWallaperProviderParsingData.h"
+#import "../RemoteInputStream/RemoteInputStream.h"
 #import <objc/runtime.h>
 
 @interface FluentWallaperProvider () <NSXMLParserDelegate>
@@ -25,28 +26,37 @@
 
 - (instancetype)initWithCompletionHandler:(void (^)(NSArray<FluentWallpaper *> * _Nullable, NSError * _Nullable))completionHandler {
     if (self = [self init]) {
-        self.completionHandler = completionHandler;
-        
         NSOperationQueue *queue = [NSOperationQueue new];
         queue.qualityOfService = NSQualityOfServiceBackground;
         queue.maxConcurrentOperationCount = 1;
         self.queue = queue;
+        
+        [queue addOperationWithBlock:^{
+            self.completionHandler = completionHandler;
+            
+            NSOperationQueue *parsingQueue = [NSOperationQueue new];
+            parsingQueue.qualityOfService = NSQualityOfServiceUserInitiated;
+            parsingQueue.maxConcurrentOperationCount = 1;
+            self.parsingQueue = parsingQueue;
+            [parsingQueue release];
+            
+            FluentWallaperProviderParsingData *parsingData = [FluentWallaperProviderParsingData new];
+            self.parsingData = parsingData;
+            [parsingData release];
+            
+            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:self.baseURLComponents.URL];
+            RemoteInputStream *inputStream = [[RemoteInputStream alloc] initWithRequest:request];
+            [request release];
+            
+            NSXMLParser *parser = [[NSXMLParser alloc] initWithStream:inputStream];
+            [inputStream release];
+            parser.delegate = self;
+            
+            self.parser = parser;
+            [parser release];
+        }];
+        
         [queue release];
-        
-        NSOperationQueue *parsingQueue = [NSOperationQueue new];
-        parsingQueue.qualityOfService = NSQualityOfServiceUserInitiated;
-        parsingQueue.maxConcurrentOperationCount = 1;
-        self.parsingQueue = parsingQueue;
-        [parsingQueue release];
-        
-        FluentWallaperProviderParsingData *parsingData = [FluentWallaperProviderParsingData new];
-        self.parsingData = parsingData;
-        [parsingData release];
-        
-        NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:self.baseURLComponents.URL];
-        parser.delegate = self;
-        self.parser = parser;
-        [parser release];
     }
     
     return self;
@@ -82,7 +92,6 @@
 - (void)cancel {
     [self.queue addOperationWithBlock:^{
         if (!self.isStarted || self.isCancelled) return;
-        [self.parser abortParsing];
         self.isCancelled = YES;
     }];
 }
@@ -94,6 +103,8 @@
     
     return [components autorelease];
 }
+
+#pragma mark - NSXMLParserDelegate
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
     if ([@"li" isEqualToString:elementName] && ([@"listItem" isEqualToString:attributeDict[@"role"]])) {
@@ -149,10 +160,6 @@
     [fluentWallpaper release];
     
     [self.parsingData cleanup];
-}
-
-- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-    
 }
 
 @end
