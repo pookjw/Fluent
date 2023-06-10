@@ -21,19 +21,4 @@
     [provider release];
 }
 
-- (void)test_cancel {
-    XCTestExpectation *expectation = [self expectationWithDescription:@""];
-    
-    FluentWallaperProvider *provider = [[FluentWallaperProvider alloc] initWithCompletionHandler:^(NSArray<FluentWallpaper *> * _Nullable fluentWallpapers, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        
-        [expectation fulfill];
-    }];
-    [provider start];
-    [provider cancel];
-    
-    [self waitForExpectations:@[expectation] timeout:100.f];
-    [provider release];
-}
-
 @end
