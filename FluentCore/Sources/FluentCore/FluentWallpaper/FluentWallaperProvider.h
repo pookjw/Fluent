@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FluentWallaperProvider : NSObject
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithCompletionHandler:(void (^)(NSArray<FluentWallpaper *> * _Nullable fluentWallpapers, NSError * _Nullable error))completionHandler;
+- (instancetype)initWithCompletionHandler:(void (^)(NSArray<FluentWallpaper *> * _Nullable __autoreleasing fluentWallpapers, NSError * _Nullable __autoreleasing error))completionHandler;
 - (void)start;
 - (void)cancel;
 @end

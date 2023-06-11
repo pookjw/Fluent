@@ -10,7 +10,6 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     FluentWallaperProvider *provider = [[FluentWallaperProvider alloc] initWithCompletionHandler:^(NSArray<FluentWallpaper *> * _Nullable fluentWallpapers, NSError * _Nullable error) {
-        NSLog(@"%@", fluentWallpapers);
         XCTAssertTrue(fluentWallpapers.count);
         
         [expectation fulfill];

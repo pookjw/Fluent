@@ -6,27 +6,34 @@
 //
 
 #import "AppDelegate.h"
+#import "WallpapersViewController.h"
 
 @interface AppDelegate ()
-
-
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    WallpapersViewController *contentViewController = [WallpapersViewController new];
+    NSWindow *window = [NSWindow new];
+    window.styleMask = NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskFullSizeContentView | NSWindowStyleMaskResizable | NSWindowStyleMaskTitled;
+    window.movableByWindowBackground = YES;
+    window.title = NSProcessInfo.processInfo.processName;
+    window.releasedWhenClosed = NO;
+    window.titlebarAppearsTransparent = YES;
+    window.minSize = window.contentMinSize;
+    window.contentViewController = contentViewController;
+    [contentViewController release];
+    [window makeKeyAndOrderFront:nil];
+    [window release];
 }
-
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
+    
 }
-
 
 - (BOOL)applicationSupportsSecureRestorableState:(NSApplication *)app {
     return YES;
 }
-
 
 @end

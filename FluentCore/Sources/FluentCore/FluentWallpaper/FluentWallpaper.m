@@ -68,4 +68,19 @@
     return copy;
 }
 
+- (BOOL)isEqual:(id)other {
+    if (other == self) {
+        return YES;
+    } else if (![super isEqual:other]) {
+        return NO;
+    } else {
+        FluentWallpaper *toCompare = (FluentWallpaper *)other;
+        return ([self.title isEqualToString:toCompare.title]) && ([self.thumbnailImageURL isEqual:toCompare.thumbnailImageURL]) && ([self.imageURL isEqual:toCompare.imageURL]);
+    }
+}
+
+- (NSUInteger)hash {
+    return self.title.hash ^ self.thumbnailImageURL.hash ^ self.imageURL.hash;
+}
+
 @end

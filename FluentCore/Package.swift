@@ -19,7 +19,7 @@ let package = Package(
         .target(
             name: "FluentCore",
             publicHeadersPath: "include",
-            cSettings: [.unsafeFlags(["-fno-objc-arc", "-fno-objc-weak", "-ICancellable"])]
+            cSettings: [.unsafeFlags(["-fno-objc-arc", "-fobjc-weak"])]
         ),
         .testTarget(
             name: "FluentCoreTests",
