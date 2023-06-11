@@ -9,6 +9,8 @@
 #import "KeyValueObservation+Private.h"
 #import <objc/runtime.h>
 
+// idea from https://github.com/apple/swift-corelibs-foundation/blob/bd2e810a3ff5adf12410666cee74725d94f2dd25/Darwin/Foundation-swiftoverlay/NSObject.swift#L163
+
 static void *_associationKey = NULL;
 
 @interface KeyValueObservationHelper : NSObject

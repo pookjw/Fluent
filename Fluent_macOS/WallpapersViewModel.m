@@ -37,12 +37,49 @@
     WallpapersDataSource *dataSource = self.dataSource;
     
     __block NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+        __block NSError * _Nullable _error = nil;
+        
         FluentWallaperProvider *provider = [[FluentWallaperProvider alloc] initWithCompletionHandler:^(NSArray<FluentWallpaper *> * _Nullable fluentWallpapers, NSError * _Nullable error) {
-            NSLog(@"%@", fluentWallpapers);
+            if (error) {
+                _error = [error retain];
+                dispatch_semaphore_signal(semaphore);
+                return;
+            }
+            
+            WallpapersSnapshot *snapshot = [WallpapersSnapshot new];
+            
+            WallpapersSectionModel *fluentWallpapersSectionModel = [[WallpapersSectionModel alloc] initWithType:WallpapersSectionModelTypeFluentWallpapers];
+            [snapshot appendSectionsWithIdentifiers:@[fluentWallpapersSectionModel]];
+            
+            [fluentWallpapers enumerateObjectsUsingBlock:^(FluentWallpaper * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                WallpapersItemModel *itemModel = [[WallpapersItemModel alloc] initWithFluentWallpaper:obj];
+                [snapshot appendItemsWithIdentifiers:@[itemModel] intoSectionWithIdentifier:fluentWallpapersSectionModel];
+                [itemModel release];
+            }];
+            
+            [fluentWallpapersSectionModel release];
+            
+            ((void (*)(id, SEL, id, BOOL, id))objc_msgSend)(dataSource, NSSelectorFromString(@"applySnapshot:animatingDifferences:completion:"), snapshot, YES, ^{
+                dispatch_semaphore_signal(semaphore);
+            });
+            
+            [snapshot release];
+        }];
+        
+        [operation observeValueForKeyPath:@"isCancelled" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew changeHandler:^(id  _Nonnull object, NSDictionary * _Nonnull changes) {
+            if (((NSNumber *)changes[NSKeyValueChangeNewKey]).boolValue) {
+                [provider cancel];
+            }
         }];
         
         [provider start];
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        dispatch_release(semaphore);
         [provider release];
+        
+        completionHandler(_error);
+        [_error release];
     }];
     
     [queue addOperation:operation];
