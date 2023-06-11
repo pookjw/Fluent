@@ -20,7 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupImageView];
+    self.view.wantsLayer = YES;
+    self.view.layer.contentsGravity = kCAGravityResizeAspectFill;
+    self.view.layer.masksToBounds = YES;
 }
 
 - (void)setupWithFluentWallpaper:(FluentWallpaper *)fluentWallpaper {
@@ -30,19 +32,10 @@
     NSData *data = [[NSData alloc] initWithContentsOfURL:fluentWallpaper.thumbnailImageURL];
     NSImage *image = [[NSImage alloc] initWithData:data];
     [data release];
-    self.imageView.image = image;
+    self.view.layer.contents = image;
     [image release];
     
     self.fluentWallpaper = fluentWallpaper;
-}
-
-- (void)setupImageView {
-    NSImageView *imageView = [[NSImageView alloc] initWithFrame:self.view.bounds];
-    imageView.imageScaling = NSImageScaleAxesIndependently;
-    imageView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-    [self.view addSubview:imageView];
-    self.imageView = imageView;
-    [imageView release];
 }
 
 @end

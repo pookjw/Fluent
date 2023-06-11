@@ -10,3 +10,4 @@
 #import "../Cancellable/CancellableObject.h"
 #import "../RemoteInputStream/RemoteInputStream.h"
 #import "../KeyValueObservation/NSObject+KeyValueObservation.h"
+#import "../DataCache/DataCacheManager.h"
