@@ -15,6 +15,7 @@ static NSProgressUserInfoKey NSProgressUserInfoNetworkDownloaderDidReceiveHandle
 
 @implementation NetworkDownloaderHelper
 
+// completionHandler 없애야함...
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     NetworkDownloaderDidReceiveDataHandler handler = dataTask.progress.userInfo[NSProgressUserInfoNetworkDownloaderDidReceiveHandlerKey];
     handler(dataTask.progress, data, YES, nil);
