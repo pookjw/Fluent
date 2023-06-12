@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fetchDataCachesWithIdentity:(NSString *)identity completionHandler:(void (^)(NSArray<DataCache *> * _Nullable __autoreleasing dataCaches, NSError * _Nullable __autoreleasing error))completionHandler;
 - (void)createDataCacheWithHandler:(void (^)(DataCache * __autoreleasing dataCache))handler;
 - (void)saveChangesWithCompletionHandler:(void (^)(NSError * _Nullable __autoreleasing))completionHandler;
-- (void)deleteAllWithCompletionHandler:(void (^)(NSError * _Nullable __autoreleasing error))completionHandler;
+- (void)destoryWithCompletionHandler:(void (^)(NSError * _Nullable __autoreleasing error))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END

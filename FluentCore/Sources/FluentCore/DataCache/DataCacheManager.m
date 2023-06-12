@@ -83,26 +83,44 @@
     }];
 }
 
-- (void)deleteAllWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler {
+- (void)destoryWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler {
     [self.queue addOperationWithBlock:^{
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"DataCache"];
-        NSBatchDeleteRequest *batchDeleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:fetchRequest];
-        batchDeleteRequest.affectedStores = self.container.persistentStoreCoordinator.persistentStores;
-        batchDeleteRequest.resultType = NSBatchDeleteResultTypeObjectIDs;
+        NSPersistentStoreCoordinator *coordinator = self.container.persistentStoreCoordinator;
         
-        NSError * _Nullable __autoreleasing error = nil;
-        NSBatchDeleteResult *deletedObjectIDs = [self.container.persistentStoreCoordinator executeRequest:batchDeleteRequest withContext:self.context error:&error];
+        __block NSError * _Nullable error = nil;
+        [coordinator.persistentStores enumerateObjectsUsingBlock:^(__kindof NSPersistentStore * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [coordinator destroyPersistentStoreAtURL:obj.URL withType:obj.type options:nil error:&error];
+        }];
         
-        if (error) {
-            NSLog(@"%@", error);
-            completionHandler(error);
-            return;
-        }
+        [self setupContainer];
+        [self setupContext];
         
-        [NSManagedObjectContext mergeChangesFromRemoteContextSave:@{NSDeletedObjectIDsKey: deletedObjectIDs.result} intoContexts:@[self.context]];
-        completionHandler(nil);
+        completionHandler([[error retain] autorelease]);
     }];
 }
+
+//- (void)deleteAllWithCompletionHandler:(void (^)(NSError * _Nullable))completionHandler {
+//    [self.queue addOperationWithBlock:^{
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"DataCache"];
+//        NSBatchDeleteRequest *batchDeleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:fetchRequest];
+//        [fetchRequest release];
+//        batchDeleteRequest.affectedStores = self.container.persistentStoreCoordinator.persistentStores;
+//        batchDeleteRequest.resultType = NSBatchDeleteResultTypeObjectIDs;
+//        
+//        NSError * _Nullable __autoreleasing error = nil;
+//        NSBatchDeleteResult *deletedObjectIDs = [self.container.persistentStoreCoordinator executeRequest:batchDeleteRequest withContext:self.context error:&error];
+//        [batchDeleteRequest release];
+//        
+//        if (error) {
+//            NSLog(@"%@", error);
+//            completionHandler(error);
+//            return;
+//        }
+//        
+//        [NSManagedObjectContext mergeChangesFromRemoteContextSave:@{NSDeletedObjectIDsKey: deletedObjectIDs.result} intoContexts:@[self.context]];
+//        completionHandler(nil);
+//    }];
+//}
 
 - (void)setupQueue {
     NSOperationQueue *queue = [NSOperationQueue new];
@@ -153,7 +171,7 @@
     identityDescription.name = @"identity";
     
     NSAttributeDescription *cacheDescription = [NSAttributeDescription new];
-    cacheDescription.name = @"cache";
+    cacheDescription.name = @"data";
     cacheDescription.attributeType = NSBinaryDataAttributeType;
     cacheDescription.allowsExternalBinaryDataStorage = YES;
     cacheDescription.optional = YES;

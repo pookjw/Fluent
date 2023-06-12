@@ -18,7 +18,7 @@
 
 - (void)cleanup {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
-    [DataCacheManager.sharedInstance deleteAllWithCompletionHandler:^(NSError * _Nullable error) {
+    [DataCacheManager.sharedInstance destoryWithCompletionHandler:^(NSError * _Nullable error) {
         XCTAssertNil(error);
         [expectation fulfill];
     }];
@@ -79,7 +79,7 @@
     
     XCTestExpectation *deleteExpectation = [self expectationWithDescription:@"delete"];
     
-    [DataCacheManager.sharedInstance deleteAllWithCompletionHandler:^(NSError * _Nullable error) {
+    [DataCacheManager.sharedInstance destoryWithCompletionHandler:^(NSError * _Nullable error) {
         XCTAssertNil(error);
         [deleteExpectation fulfill];
     }];

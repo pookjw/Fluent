@@ -6,7 +6,6 @@
 //
 
 #import <XCTest/XCTestCase.h>
-#import <AppKit/AppKit.h>
 @import FluentCore;
 
 @interface RemoteInputStreamTests : XCTestCase
@@ -33,7 +32,7 @@
     
     free(buffer);
     
-    XCTAssertTrue([normalData isEqualToData:streamingData]);
+    XCTAssertEqualObjects(normalData, streamingData);
     
     [streamingData release];
 }
