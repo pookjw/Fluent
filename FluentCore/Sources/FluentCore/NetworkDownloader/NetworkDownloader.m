@@ -95,13 +95,14 @@ static NSProgressUserInfoKey NSProgressUserInfoNetworkDownloaderDidReceiveHandle
                                 didReceiveDataHandler(progress, data, YES, error);
                             }];
                         } else {
-                            [dataCacheManager createDataCacheWithHandler:^(DataCache * _Nonnull dataCache) {
-                                dataCache.identity = request.URL.absoluteString;
-                                dataCache.data = data;
-                                [dataCacheManager saveChangesWithCompletionHandler:^(NSError * _Nullable error) {
-                                    didReceiveDataHandler(progress, data, YES, error);
-                                }];
-                            }];
+//                            [dataCacheManager createDataCacheWithHandler:^(DataCache * _Nonnull dataCache) {
+//                                dataCache.identity = request.URL.absoluteString;
+//                                dataCache.data = data;
+//                                [dataCacheManager saveChangesWithCompletionHandler:^(NSError * _Nullable error) {
+//                                    didReceiveDataHandler(progress, data, YES, error);
+//                                }];
+//                            }];
+                            didReceiveDataHandler(progress, data, YES, error);
                         }
                     }];
                 } else {
