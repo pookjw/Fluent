@@ -30,20 +30,18 @@
     
     NSData *normalData = [NSData dataWithContentsOfURL:NetworkDownloaderTests.testURL];
     
-    NSMutableData *partialData = [NSMutableData new];
+    __block NSData * _Nullable partialData;
     XCTestExpectation *downloadExpectation = [self expectationWithDescription:@"downloadExpectation"];
     
     NetworkDownloader *downloader = [NetworkDownloader new];
-    
-    [downloader downloadFromURL:NetworkDownloaderTests.testURL didReceiveDataHandler:^(NSProgress * _Nullable progress, NSData * _Nullable data, BOOL isPartial, NSError * _Nullable error) {
-        XCTAssertTrue(isPartial);
+    NSDictionary *_userInfo = @{@"TEST": @3};
+    [downloader downloadFromURL:NetworkDownloaderTests.testURL userInfo:_userInfo didReceiveDataHandler:^(NSProgress * _Nullable progress, NSData * _Nullable __autoreleasing data, NSDictionary * _Nullable __autoreleasing userInfo, NSError * _Nullable __autoreleasing error) {
+        XCTAssertEqualObjects(_userInfo, userInfo);
+        XCTAssertNotNil(progress);
         XCTAssertNil(error);
         
-        if (data) {
-            [partialData appendData:data];
-        }
-        
         if (progress.isFinished) {
+            partialData = [data retain];
             [downloadExpectation fulfill];
         }
     }];
@@ -52,6 +50,7 @@
     [self waitForExpectations:@[downloadExpectation] timeout:2.f];
     
     XCTAssertEqualObjects(normalData, partialData);
+    [partialData release];
 }
 
 - (void)test_cachedData {
@@ -60,8 +59,10 @@
     XCTestExpectation *cacheExpectation = [self expectationWithDescription:@"cacheExpectation"];
     NetworkDownloader *downloader = [NetworkDownloader new];
     
-    [downloader downloadFromURL:NetworkDownloaderTests.testURL didReceiveDataHandler:^(NSProgress * _Nullable progress, NSData * _Nullable data, BOOL isPartial, NSError * _Nullable error) {
-        XCTAssertFalse(isPartial);
+    NSDictionary *_userInfo = @{@"TEST": @3};
+    [downloader downloadFromURL:NetworkDownloaderTests.testURL userInfo:_userInfo didReceiveDataHandler:^(NSProgress * _Nullable progress, NSData * _Nullable __autoreleasing data, NSDictionary * _Nullable __autoreleasing userInfo, NSError * _Nullable __autoreleasing error) {
+        XCTAssertEqualObjects(_userInfo, userInfo);
+        XCTAssertNil(progress);
         XCTAssertNil(error);
         XCTAssertNotNil(data);
         NSData *normalData = [NSData dataWithContentsOfURL:NetworkDownloaderTests.testURL];

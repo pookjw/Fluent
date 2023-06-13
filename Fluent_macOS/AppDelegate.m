@@ -21,6 +21,7 @@
     window.title = NSProcessInfo.processInfo.processName;
     window.releasedWhenClosed = NO;
     window.titlebarAppearsTransparent = YES;
+    window.titleVisibility = NSWindowTitleHidden;
     window.minSize = window.contentMinSize;
     window.contentViewController = contentViewController;
     [contentViewController release];
