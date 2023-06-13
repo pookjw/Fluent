@@ -65,6 +65,7 @@
     self.view.layer.contentsGravity = kCAGravityResizeAspectFill;
     self.view.layer.masksToBounds = YES;
     self.view.layer.cornerRadius = 10.f;
+    self.view.layer.cornerCurve = kCACornerCurveContinuous;
 }
 
 - (void)setupDownloader {
