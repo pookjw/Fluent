@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F43C66A2A345F2F008293B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F43C6692A345F2F008293B5 /* AppDelegate.m */; };
+		4F43C66F2A345F30008293B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F43C66E2A345F30008293B5 /* Assets.xcassets */; };
+		4F43C6742A345F30008293B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F43C6732A345F30008293B5 /* main.m */; };
+		4F43C67D2A34D5AA008293B5 /* FluentCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4F43C67C2A34D5AA008293B5 /* FluentCore */; };
+		4F43C6802A34DA4E008293B5 /* WallpapersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F43C67F2A34DA4E008293B5 /* WallpapersViewController.m */; };
+		4F43C6832A357604008293B5 /* WallpapersViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F43C6822A357604008293B5 /* WallpapersViewModel.m */; };
+		4F43C6862A35768B008293B5 /* WallpapersSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F43C6852A35768B008293B5 /* WallpapersSectionModel.m */; };
+		4F43C6892A357697008293B5 /* WallpapersItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F43C6882A357697008293B5 /* WallpapersItemModel.m */; };
+		4F43C69F2A35AAA2008293B5 /* WallpapersFluentWallpaperCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F43C69E2A35AAA2008293B5 /* WallpapersFluentWallpaperCollectionViewItem.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4F20FCB02A38CFF200C707D6 /* Fluent_macOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fluent_macOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		4F43C6652A345F2F008293B5 /* Fluent_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fluent_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F43C6682A345F2F008293B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4F43C6692A345F2F008293B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4F43C66E2A345F30008293B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F43C6732A345F30008293B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4F43C6752A345F30008293B5 /* Fluent_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fluent_macOS.entitlements; sourceTree = "<group>"; };
+		4F43C67E2A34DA4E008293B5 /* WallpapersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WallpapersViewController.h; sourceTree = "<group>"; };
+		4F43C67F2A34DA4E008293B5 /* WallpapersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WallpapersViewController.m; sourceTree = "<group>"; };
+		4F43C6812A357604008293B5 /* WallpapersViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WallpapersViewModel.h; sourceTree = "<group>"; };
+		4F43C6822A357604008293B5 /* WallpapersViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WallpapersViewModel.m; sourceTree = "<group>"; };
+		4F43C6842A35768B008293B5 /* WallpapersSectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WallpapersSectionModel.h; sourceTree = "<group>"; };
+		4F43C6852A35768B008293B5 /* WallpapersSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WallpapersSectionModel.m; sourceTree = "<group>"; };
+		4F43C6872A357697008293B5 /* WallpapersItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WallpapersItemModel.h; sourceTree = "<group>"; };
+		4F43C6882A357697008293B5 /* WallpapersItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WallpapersItemModel.m; sourceTree = "<group>"; };
+		4F43C69D2A35AAA2008293B5 /* WallpapersFluentWallpaperCollectionViewItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WallpapersFluentWallpaperCollectionViewItem.h; sourceTree = "<group>"; };
+		4F43C69E2A35AAA2008293B5 /* WallpapersFluentWallpaperCollectionViewItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WallpapersFluentWallpaperCollectionViewItem.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F43C6622A345F2F008293B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F43C67D2A34D5AA008293B5 /* FluentCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F43C65C2A345F2F008293B5 = {
+			isa = PBXGroup;
+			children = (
+				4F43C6672A345F2F008293B5 /* Fluent_macOS */,
+				4F43C6662A345F2F008293B5 /* Products */,
+				4F43C67B2A34D5AA008293B5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4F43C6662A345F2F008293B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F43C6652A345F2F008293B5 /* Fluent_macOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F43C6672A345F2F008293B5 /* Fluent_macOS */ = {
+			isa = PBXGroup;
+			children = (
+				4F43C6682A345F2F008293B5 /* AppDelegate.h */,
+				4F43C6692A345F2F008293B5 /* AppDelegate.m */,
+				4F43C67E2A34DA4E008293B5 /* WallpapersViewController.h */,
+				4F43C67F2A34DA4E008293B5 /* WallpapersViewController.m */,
+				4F43C6812A357604008293B5 /* WallpapersViewModel.h */,
+				4F43C6822A357604008293B5 /* WallpapersViewModel.m */,
+				4F43C6842A35768B008293B5 /* WallpapersSectionModel.h */,
+				4F43C6852A35768B008293B5 /* WallpapersSectionModel.m */,
+				4F43C6872A357697008293B5 /* WallpapersItemModel.h */,
+				4F43C6882A357697008293B5 /* WallpapersItemModel.m */,
+				4F43C69D2A35AAA2008293B5 /* WallpapersFluentWallpaperCollectionViewItem.h */,
+				4F43C69E2A35AAA2008293B5 /* WallpapersFluentWallpaperCollectionViewItem.m */,
+				4F43C66E2A345F30008293B5 /* Assets.xcassets */,
+				4F43C6732A345F30008293B5 /* main.m */,
+				4F43C6752A345F30008293B5 /* Fluent_macOS.entitlements */,
+				4F20FCB02A38CFF200C707D6 /* Fluent_macOS-Bridging-Header.h */,
+			);
+			path = Fluent_macOS;
+			sourceTree = "<group>";
+		};
+		4F43C67B2A34D5AA008293B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F43C6642A345F2F008293B5 /* Fluent_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F43C6782A345F30008293B5 /* Build configuration list for PBXNativeTarget "Fluent_macOS" */;
+			buildPhases = (
+				4F43C6612A345F2F008293B5 /* Sources */,
+				4F43C6622A345F2F008293B5 /* Frameworks */,
+				4F43C6632A345F2F008293B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fluent_macOS;
+			packageProductDependencies = (
+				4F43C67C2A34D5AA008293B5 /* FluentCore */,
+			);
+			productName = Fluent_macOS;
+			productReference = 4F43C6652A345F2F008293B5 /* Fluent_macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F43C65D2A345F2F008293B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					4F43C6642A345F2F008293B5 = {
+						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
+					};
+				};
+			};
+			buildConfigurationList = 4F43C6602A345F2F008293B5 /* Build configuration list for PBXProject "Fluent_macOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F43C65C2A345F2F008293B5;
+			productRefGroup = 4F43C6662A345F2F008293B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F43C6642A345F2F008293B5 /* Fluent_macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F43C6632A345F2F008293B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F43C66F2A345F30008293B5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F43C6612A345F2F008293B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F43C6742A345F30008293B5 /* main.m in Sources */,
+				4F43C6892A357697008293B5 /* WallpapersItemModel.m in Sources */,
+				4F43C6862A35768B008293B5 /* WallpapersSectionModel.m in Sources */,
+				4F43C66A2A345F2F008293B5 /* AppDelegate.m in Sources */,
+				4F43C69F2A35AAA2008293B5 /* WallpapersFluentWallpaperCollectionViewItem.m in Sources */,
+				4F43C6802A34DA4E008293B5 /* WallpapersViewController.m in Sources */,
+				4F43C6832A357604008293B5 /* WallpapersViewModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4F43C6762A345F30008293B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4F43C6772A345F30008293B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4F43C6792A345F30008293B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Fluent_macOS/Fluent_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P53D29U9LJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pookjw.Fluent-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Fluent_macOS/Fluent_macOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4F43C67A2A345F30008293B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Fluent_macOS/Fluent_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P53D29U9LJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pookjw.Fluent-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Fluent_macOS/Fluent_macOS-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F43C6602A345F2F008293B5 /* Build configuration list for PBXProject "Fluent_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F43C6762A345F30008293B5 /* Debug */,
+				4F43C6772A345F30008293B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F43C6782A345F30008293B5 /* Build configuration list for PBXNativeTarget "Fluent_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F43C6792A345F30008293B5 /* Debug */,
+				4F43C67A2A345F30008293B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F43C67C2A34D5AA008293B5 /* FluentCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FluentCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4F43C65D2A345F2F008293B5 /* Project object */;
+}
