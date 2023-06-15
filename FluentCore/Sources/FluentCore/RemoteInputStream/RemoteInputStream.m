@@ -31,7 +31,6 @@
     if (self = [super initWithURL:request.URL]) {
         NSURLSession *session = [NSURLSession sessionWithConfiguration:NSURLSessionConfiguration.ephemeralSessionConfiguration];
         NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request];
-        sessionDataTask.delegate = self;
         self.sessionDataTask = sessionDataTask;
         
         NSMutableArray<NSData *> *bufferData = [NSMutableArray<NSData *> new];
@@ -55,10 +54,12 @@
 }
 
 - (void)open {
+    self.sessionDataTask.delegate = self;
     [self.sessionDataTask resume];
 }
 
 - (void)close {
+    self.sessionDataTask.delegate = self;
     [self.sessionDataTask suspend];
 }
 
