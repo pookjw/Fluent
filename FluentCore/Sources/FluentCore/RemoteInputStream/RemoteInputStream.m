@@ -59,7 +59,6 @@
 }
 
 - (void)close {
-    self.sessionDataTask.delegate = nil;
     [self.sessionDataTask suspend];
 }
 
