@@ -9,7 +9,7 @@
 #import "WallpapersViewModel.h"
 #import "WallpapersFluentWallpaperCollectionViewItem.h"
 
-@interface WallpapersViewController ()
+@interface WallpapersViewController () <NSCollectionViewDelegate>
 @property (retain) NSVisualEffectView *blurView;
 @property (retain) NSScrollView *scrollView;
 @property (retain) NSCollectionView *collectionView;
@@ -95,6 +95,10 @@
     [configuration release];
     
     NSCollectionView *collectionView = [NSCollectionView new];
+    collectionView.allowsEmptySelection = YES;
+    collectionView.allowsMultipleSelection = YES;
+    collectionView.selectable = YES;
+    collectionView.delegate = self;
     collectionView.backgroundColors = @[NSColor.clearColor];
     
     collectionView.collectionViewLayout = collectionViewLayout;
@@ -122,5 +126,8 @@
     
     return [dataSource autorelease];
 }
+
+#pragma mark - NSCollectionViewDelegate
+
 
 @end

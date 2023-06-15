@@ -6,6 +6,7 @@
 //
 
 #import "WallpapersFluentWallpaperCollectionViewItem.h"
+#import <QuartzCore/QuartzCore.h>
 @import FluentCore;
 
 @interface WallpapersFluentWallpaperCollectionViewItem ()
@@ -63,7 +64,7 @@
 - (void)setupAttributes {
     self.view.wantsLayer = YES;
     self.view.layer.contentsGravity = kCAGravityResizeAspectFill;
-    self.view.layer.masksToBounds = YES;
+    self.view.layer.masksToBounds = NO;
     self.view.layer.cornerRadius = 10.f;
     self.view.layer.cornerCurve = kCACornerCurveContinuous;
 }
